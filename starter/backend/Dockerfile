@@ -17,6 +17,7 @@ RUN apk update && \
 RUN mkdir -p /var/www/app && mkdir /app
 
 COPY Pipfile* /app
+ENV CFLAGS="-std=gnu17"
 RUN cd /app && pipenv install --system --deploy
 
 COPY . /app
